@@ -1,0 +1,1 @@
+export { TypeChartPage } from "./type-chart-page";
