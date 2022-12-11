@@ -1,0 +1,19 @@
+.noEffect {
+    background-color: black;
+    color: white;
+}
+
+.notEffective {
+    background-color: red;
+    color: white;
+}
+
+.neutral {
+    background-color: white;
+    color: black;
+}
+
+.veryEffective {
+    background-color: green;
+    color: black;
+}
