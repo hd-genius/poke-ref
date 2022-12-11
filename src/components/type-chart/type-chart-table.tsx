@@ -15,16 +15,20 @@ export const TypeChartTable = ({ types, relationships }: TypeChartProps) => {
     const buildRowForType = (attackingType: PokemonType) => {
         const attackRelationships = relationships[attackingType] ?? [];
         return <tr>
-            <td>
+            <th>
                 <TypeIndicator type={attackingType} />
-            </td>
+            </th>
             {types.map(defendingType => {
                 const effectiveness = attackRelationships[defendingType] ?? Effectiveness.NEUTRAL;
                 return <td><EffectivenessIndicator effectiveness={effectiveness} /></td>
             })}
         </tr>;
-    }
+    };
     return <table>
+        <tr>
+            <th></th>
+            {types.map(type => <th><TypeIndicator type={type} /></th>)}
+        </tr>
         {types.map(buildRowForType)}
     </table>;
 };
