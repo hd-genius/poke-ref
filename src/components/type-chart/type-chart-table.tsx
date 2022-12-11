@@ -11,15 +11,15 @@ interface TypeChartProps {
     }
 }
 
-export const TypeChart = ({ types, relationships }: TypeChartProps) => {
+export const TypeChartTable = ({ types, relationships }: TypeChartProps) => {
     const buildRowForType = (attackingType: PokemonType) => {
-        const attackRelationships = relationships[attackingType];
+        const attackRelationships = relationships[attackingType] ?? [];
         return <tr>
             <td>
                 <TypeIndicator type={attackingType} />
             </td>
             {types.map(defendingType => {
-                const effectiveness = attackRelationships[defendingType];
+                const effectiveness = attackRelationships[defendingType] ?? Effectiveness.NEUTRAL;
                 return <td><EffectivenessIndicator effectiveness={effectiveness} /></td>
             })}
         </tr>;
