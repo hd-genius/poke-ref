@@ -28,7 +28,12 @@ export const TypeChartTable = ({ types, relationships }: TypeChartProps) => {
             </th>
             {types.map(defendingType => {
                 const effectiveness = attackRelationships[defendingType] ?? Effectiveness.NEUTRAL;
-                return <td><EffectivenessIndicator effectiveness={effectiveness} /></td>
+                return <td>
+                    <EffectivenessIndicator
+                        effectiveness={effectiveness}
+                        attackingType={attackingType}
+                        defendingType={defendingType} />
+                </td>
             })}
         </tr>;
     };
