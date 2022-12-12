@@ -1,6 +1,9 @@
 import { Effectiveness, PokemonType } from "../../models";
 import { EffectivenessIndicator } from "./effectiveness-indicator";
 import { TypeIndicator } from "./type-indicator";
+import { If } from "react-semantic-components";
+
+import styles from "./type-chart.module.scss";
 
 interface TypeChartProps {
     types: PokemonType[],
@@ -12,10 +15,15 @@ interface TypeChartProps {
 }
 
 export const TypeChartTable = ({ types, relationships }: TypeChartProps) => {
-    const buildRowForType = (attackingType: PokemonType) => {
+    const numberOfTypes = types.length;
+
+    const buildRowForType = (attackingType: PokemonType, includeVerticalHeader: boolean) => {
         const attackRelationships = relationships[attackingType] ?? [];
         return <tr>
-            <th>
+            <If condition={includeVerticalHeader}>
+                <th rowSpan={numberOfTypes} scope="row" className={styles.verticalHeader}>attacking type</th>
+            </If>
+            <th scope="row">
                 <TypeIndicator type={attackingType} />
             </th>
             {types.map(defendingType => {
@@ -24,11 +32,16 @@ export const TypeChartTable = ({ types, relationships }: TypeChartProps) => {
             })}
         </tr>;
     };
+
     return <table>
+        <colgroup>
+            <col className={styles.verticalHeaderColumn}></col>
+        </colgroup>
         <tr>
             <th></th>
-            {types.map(type => <th><TypeIndicator type={type} isAbbreviated /></th>)}
+            <th></th>
+            {types.map(type => <th scope="col"><TypeIndicator type={type} isAbbreviated /></th>)}
         </tr>
-        {types.map(buildRowForType)}
+        {types.map((type, index) => buildRowForType(type, index === 0))}
     </table>;
 };
