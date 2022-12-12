@@ -1,0 +1,28 @@
+.typeIndicator {
+    border-radius: 0.2em;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: normal;
+}
+
+.normal {
+    background-color: gray;
+    color: white;
+}
+
+.fire {
+    background-color: red;
+    color: white
+}
+
+.water {
+    background-color: blue;
+    color: white;
+}
+
+.grass {
+    background-color: green;
+    color: white;
+}

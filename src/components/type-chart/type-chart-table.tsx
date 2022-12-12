@@ -1,6 +1,6 @@
 import { Effectiveness, PokemonType } from "../../models";
 import { EffectivenessIndicator } from "./effectiveness-indicator";
-import { TypeIndicator } from "./type-indicator";
+import { TypeIndicator } from "../type-indicator";
 import { If } from "react-semantic-components";
 
 import styles from "./type-chart.module.scss";

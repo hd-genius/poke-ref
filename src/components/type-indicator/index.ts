@@ -1,0 +1,1 @@
+export { TypeIndicator } from "./type-indicator";
