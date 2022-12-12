@@ -1,6 +1,6 @@
 import { Effectiveness } from "../../models";
 
-import styles from "./effectiveness-indicator.module.css";
+import styles from "./effectiveness-indicator.module.scss";
 
 interface EffectivenessIndicatorProps {
     effectiveness: Effectiveness,

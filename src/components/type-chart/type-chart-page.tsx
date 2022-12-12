@@ -17,7 +17,7 @@ export const TypeChartPage = () => {
     useEffect(() => {
         switch (typeRevision) {
             case "gen6":
-                loadFromData(generation6);
+                loadFromData(generation6 as TypeChart);
                 break;
             default:
                 setTypes([]);

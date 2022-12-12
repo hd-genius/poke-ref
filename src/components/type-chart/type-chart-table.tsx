@@ -27,7 +27,7 @@ export const TypeChartTable = ({ types, relationships }: TypeChartProps) => {
     return <table>
         <tr>
             <th></th>
-            {types.map(type => <th><TypeIndicator type={type} /></th>)}
+            {types.map(type => <th><TypeIndicator type={type} isAbbreviated /></th>)}
         </tr>
         {types.map(buildRowForType)}
     </table>;
