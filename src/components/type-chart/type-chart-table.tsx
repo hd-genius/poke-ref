@@ -33,7 +33,7 @@ export const TypeChartTable = ({ types, relationships }: TypeChartProps) => {
         </tr>;
     };
 
-    return <table>
+    return <table className={styles.typeChart}>
         <colgroup>
             <col className={styles.verticalHeaderColumn}></col>
         </colgroup>

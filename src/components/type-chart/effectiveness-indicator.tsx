@@ -1,4 +1,5 @@
 import { Effectiveness } from "../../models";
+import classnames from "classnames";
 
 import styles from "./effectiveness-indicator.module.scss";
 
@@ -9,12 +10,12 @@ interface EffectivenessIndicatorProps {
 export const EffectivenessIndicator = ({ effectiveness }: EffectivenessIndicatorProps) => {
     switch (effectiveness) {
         case Effectiveness.NO_EFFECT:
-            return <span className={styles.noEffect}>0</span>;
+            return <div className={classnames(styles.effectivenessIndicator, styles.noEffect)}>0</div>;
         case Effectiveness.NOT_EFFECTIVE:
-            return <span className={styles.notEffective}>1/2</span>;
+            return <div className={classnames(styles.effectivenessIndicator, styles.notEffective)}>1/2</div>;
         case Effectiveness.NEUTRAL:
-            return <span className={styles.neutral}>1</span>;
+            return <div className={classnames(styles.effectivenessIndicator, styles.neutral)}>1</div>;
         case Effectiveness.VERY_EFFECTIVE:
-            return <span className={styles.veryEffective}>2</span>;
+            return <div className={classnames(styles.effectivenessIndicator, styles.veryEffective)}>2</div>;
     }
 };
