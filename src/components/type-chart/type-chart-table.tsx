@@ -45,6 +45,7 @@ export const TypeChartTable = ({ types, relationships }: TypeChartProps) => {
     };
 
     return <table className={styles.typeChart}>
+        <caption>Pokemon type chart</caption>
         <colgroup>
             <col className={styles.verticalHeaderColumn}></col>
         </colgroup>
