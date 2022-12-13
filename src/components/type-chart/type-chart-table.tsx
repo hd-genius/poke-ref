@@ -5,6 +5,15 @@ import { If } from "react-semantic-components";
 
 import styles from "./type-chart.module.scss";
 
+const effectivenessDescription = new Map([
+    [Effectiveness.NO_EFFECT, "No effect"],
+    [Effectiveness.NOT_EFFECTIVE, "Not very effective"],
+    [Effectiveness.NEUTRAL, "Effective"],
+    [Effectiveness.VERY_EFFECTIVE, "Super effective"],
+]);
+
+const arrowSymbol = String.fromCharCode(8594);
+
 interface TypeChartProps {
     types: PokemonType[],
     relationships: {
@@ -28,11 +37,8 @@ export const TypeChartTable = ({ types, relationships }: TypeChartProps) => {
             </th>
             {types.map(defendingType => {
                 const effectiveness = attackRelationships[defendingType] ?? Effectiveness.NEUTRAL;
-                return <td>
-                    <EffectivenessIndicator
-                        effectiveness={effectiveness}
-                        attackingType={attackingType}
-                        defendingType={defendingType} />
+                return <td title={`${attackingType}${arrowSymbol}${defendingType}=${effectivenessDescription.get(effectiveness)}`}>
+                    <EffectivenessIndicator effectiveness={effectiveness} />
                 </td>
             })}
         </tr>;

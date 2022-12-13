@@ -5,8 +5,6 @@ import styles from "./effectiveness-indicator.module.scss";
 
 interface EffectivenessIndicatorProps {
     effectiveness: Effectiveness,
-    attackingType: PokemonType,
-    defendingType: PokemonType,
 }
 
 const effectivenessClass = new Map([
@@ -17,28 +15,17 @@ const effectivenessClass = new Map([
 ]);
 
 const effectivenessMultiplier = new Map([
-    [Effectiveness.NO_EFFECT, "0"],
-    [Effectiveness.NOT_EFFECTIVE, "1/2"],
-    [Effectiveness.NEUTRAL, "1"],
-    [Effectiveness.VERY_EFFECTIVE, "2"],
+    [Effectiveness.NO_EFFECT, String.fromCharCode(10006)],
+    [Effectiveness.NOT_EFFECTIVE, String.fromCharCode(8595)],
+    [Effectiveness.NEUTRAL, String.fromCharCode(9711)],
+    [Effectiveness.VERY_EFFECTIVE, String.fromCharCode(8593)],
 ]);
 
-const effectivenessDescription = new Map([
-    [Effectiveness.NO_EFFECT, "No effect"],
-    [Effectiveness.NOT_EFFECTIVE, "Not very effective"],
-    [Effectiveness.NEUTRAL, "Effective"],
-    [Effectiveness.VERY_EFFECTIVE, "Super effective"],
-]);
-
-export const EffectivenessIndicator = ({ effectiveness, attackingType, defendingType }: EffectivenessIndicatorProps) => {
+export const EffectivenessIndicator = ({ effectiveness }: EffectivenessIndicatorProps) => {
     const className = effectivenessClass.get(effectiveness);
     const multiplier = effectivenessMultiplier.get(effectiveness);
-    const arrow = String.fromCharCode(8594);
 
-    return <div
-        title={`${attackingType}${arrow}${defendingType}=${effectivenessDescription.get(effectiveness)}`}
-        className={classnames(styles.effectivenessIndicator, className)}
-    >
+    return <div className={classnames(styles.effectivenessIndicator, className)}>
         {multiplier}
     </div>;
 };
