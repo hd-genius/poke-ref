@@ -2,6 +2,7 @@ import { useState } from "react";
 import { CssBaseline, Drawer, Box, Button, Typography, Divider, List, ListItem, ListItemButton, ListItemText, AppBar, Toolbar, IconButton } from "@mui/material";
 import { Menu as MenuIcon } from "@mui/icons-material";
 import { AppRouter } from "./app-router";
+import { Link, Outlet } from "react-router-dom";
 
 interface Props {
     /**
@@ -14,8 +15,16 @@ interface Props {
 const navItems = [
     {
         name: "Type Chart",
-        path: "/type-chart/gen6"
-    }
+        path: "/type-chart/gen6",
+    },
+    {
+        name: "Pokemon",
+        path: "/pokemon",
+    },
+    {
+        name: "Moves",
+        path: "/moves",
+    },
 ];
 
 const APP_NAME = "PokeRef";
@@ -71,9 +80,11 @@ export const App = (props: Props) => {
                     </Typography>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         {navItems.map((item) => (
-                            <Button key={item.name} sx={{ color: '#fff' }}>
-                                {item.name}
-                            </Button>
+                            <Link to={item.path}>
+                                <Button key={item.name} sx={{ color: '#fff' }}>
+                                    {item.name}
+                                </Button>
+                            </Link>
                         ))}
                     </Box>
                 </Toolbar>
@@ -98,7 +109,7 @@ export const App = (props: Props) => {
             <Box component="main" sx={{ p: 3 }}>
                 <Toolbar />
                 <main>
-                    <AppRouter />
+                    <Outlet />
                 </main>
             </Box>
         </Box>
