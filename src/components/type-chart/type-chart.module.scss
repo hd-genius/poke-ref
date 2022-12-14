@@ -40,7 +40,8 @@
 
 
 .verticalHeader {
-    transform: rotate(-90deg);
+    writing-mode: vertical-lr;
+    transform: rotate(-180deg);
 }
 
 .abbreviatedType {
