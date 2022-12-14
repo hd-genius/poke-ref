@@ -3,6 +3,8 @@ import { CssBaseline, Drawer, Box, Button, Typography, Divider, List, ListItem, 
 import { Menu as MenuIcon } from "@mui/icons-material";
 import { AppRouter } from "./app-router";
 import { Link, Outlet } from "react-router-dom";
+import { ThemeProvider } from "@emotion/react";
+import { theme } from "./theme";
 
 interface Props {
     /**
@@ -57,7 +59,7 @@ export const App = (props: Props) => {
 
     const container = window !== undefined ? () => window().document.body : undefined;
 
-    return (
+    return (<ThemeProvider theme={theme}>
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
             <AppBar component="nav">
@@ -113,5 +115,6 @@ export const App = (props: Props) => {
                 </main>
             </Box>
         </Box>
+    </ThemeProvider>
     );
 }
