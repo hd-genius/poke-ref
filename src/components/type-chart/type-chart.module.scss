@@ -13,7 +13,7 @@
 .typeChart {
     display: block;
     position: relative;
-    overflow: scroll;
+    overflow: auto;
     max-width: 100vw;
 
     @media screen and (max-width: 1080px) {
