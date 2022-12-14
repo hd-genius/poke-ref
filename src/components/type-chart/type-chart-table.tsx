@@ -44,21 +44,33 @@ export const TypeChartTable = ({ types, relationships }: TypeChartProps) => {
         </tr>;
     };
 
-    return <table className={styles.typeChart}>
-        <caption>Pokemon type chart</caption>
-        <colgroup>
-            <col className={styles.verticalHeaderColumn}></col>
-        </colgroup>
-        <tr>
-            <th></th>
-            <th></th>
-            <th colSpan={numberOfTypes}>defending type</th>
-        </tr>
-        <tr>
-            <th></th>
-            <th></th>
-            {types.map(type => <th scope="col"><TypeIndicator type={type} isAbbreviated /></th>)}
-        </tr>
-        {types.map((type, index) => buildRowForType(type, index === 0))}
-    </table>;
+    return <>
+        <dl>
+            <dt><EffectivenessIndicator effectiveness={Effectiveness.NO_EFFECT} /></dt>
+            <dd>No effect</dd>
+            <dt><EffectivenessIndicator effectiveness={Effectiveness.NOT_EFFECTIVE} /></dt>
+            <dd>Not effective</dd>
+            <dt><EffectivenessIndicator effectiveness={Effectiveness.NEUTRAL} /></dt>
+            <dd>Neutral</dd>
+            <dt><EffectivenessIndicator effectiveness={Effectiveness.VERY_EFFECTIVE} /></dt>
+            <dd>Super effective</dd>
+        </dl>
+        <table className={styles.typeChart}>
+            <caption>Pokemon type chart</caption>
+            <colgroup>
+                <col className={styles.verticalHeaderColumn}></col>
+            </colgroup>
+            <tr>
+                <th></th>
+                <th></th>
+                <th colSpan={numberOfTypes}>defending type</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                {types.map(type => <th scope="col"><TypeIndicator type={type} isAbbreviated /></th>)}
+            </tr>
+            {types.map((type, index) => buildRowForType(type, index === 0))}
+        </table>
+    </>;
 };
