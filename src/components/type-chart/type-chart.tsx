@@ -1,4 +1,5 @@
 import { Effectiveness, PokemonType, TypeChart as TypeChartModel } from "../../models";
+import classNames from "classnames";
 import { EffectivenessIndicator } from "./effectiveness-indicator";
 import { TypeIndicator } from "../type-indicator";
 import { If } from "react-semantic-components";
@@ -24,7 +25,7 @@ export const TypeChart = () => {
         const relationships = attackRelationships[attackingType] ?? [];
         return <tr key={attackingType}>
             <If condition={includeVerticalHeader}>
-                <th rowSpan={numberOfTypes} scope="row" className={styles.verticalHeader}>attacking type</th>
+                <th rowSpan={numberOfTypes} scope="row" className={classNames(styles.verticalHeader, styles.typeAxisHeader)}>attacking type</th>
             </If>
             <th scope="row" className={styles.attackTypeHeader}>
                 <TypeIndicator type={attackingType} />
@@ -58,7 +59,7 @@ export const TypeChart = () => {
             <tr>
                 <th></th>
                 <th></th>
-                <th colSpan={numberOfTypes}>defending type</th>
+                <th colSpan={numberOfTypes} className={styles.typeAxisHeader}>defending type</th>
             </tr>
             <tr>
                 <th></th>
