@@ -11,7 +11,12 @@ interface Props {
     window?: () => Window;
 }
 
-const navItems = ['Home', 'About', 'Contact'];
+const navItems = [
+    {
+        name: "Type Chart",
+        path: "/type-chart/gen6"
+    }
+];
 
 const APP_NAME = "PokeRef";
 
@@ -31,9 +36,9 @@ export const App = (props: Props) => {
             <Divider />
             <List>
                 {navItems.map((item) => (
-                    <ListItem key={item} disablePadding>
+                    <ListItem key={item.name} disablePadding>
                         <ListItemButton sx={{ textAlign: 'center' }}>
-                            <ListItemText primary={item} />
+                            <ListItemText primary={item.name} />
                         </ListItemButton>
                     </ListItem>
                 ))}
@@ -66,8 +71,8 @@ export const App = (props: Props) => {
                     </Typography>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         {navItems.map((item) => (
-                            <Button key={item} sx={{ color: '#fff' }}>
-                                {item}
+                            <Button key={item.name} sx={{ color: '#fff' }}>
+                                {item.name}
                             </Button>
                         ))}
                     </Box>
