@@ -1,3 +1,15 @@
+.typeChartKey {
+    width: fit-content;
+    display: grid;
+    grid-template-columns: max-content max-content;
+    align-items: center;
+    gap: 1em;
+
+    dd {
+        margin: 0;
+    }
+}
+
 .typeChart {
     display: block;
     position: relative;
@@ -7,17 +19,18 @@
     @media screen and (max-width: 1080px) {
         max-height: 100vh;
     }
+    
+    .attackTypeHeader {
+        position: sticky;
+        left: 0;
+    }
+    
+    .defenseTypeHeader {
+        position: sticky;
+        top: 0;
+    }
 }
 
-.typeChart .attackTypeHeader {
-    position: sticky;
-    left: 0;
-}
-
-.typeChart .defenseTypeHeader {
-    position: sticky;
-    top: 0;
-}
 
 .verticalHeader {
     transform: rotate(-90deg);

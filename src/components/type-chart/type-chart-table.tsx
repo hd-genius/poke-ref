@@ -45,7 +45,7 @@ export const TypeChartTable = ({ types, relationships }: TypeChartProps) => {
     };
 
     return <>
-        <dl>
+        <dl className={styles.typeChartKey}>
             <dt><EffectivenessIndicator effectiveness={Effectiveness.NO_EFFECT} /></dt>
             <dd>No effect</dd>
             <dt><EffectivenessIndicator effectiveness={Effectiveness.NOT_EFFECTIVE} /></dt>
