@@ -8,16 +8,11 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "type-chart/:generation",
-        loader: async () => {
-          const typeRevision = "gen6";
+        path: "type-chart/:typeRevision",
+        loader: async ({ params }) => {
+          const { typeRevision } = params;
 
-          return await fetch(`/data/type-charts/${typeRevision}.json`, {
-            headers : { 
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-             }
-          });
+          return await fetch(`/data/type-charts/${typeRevision}.json`);
         },
         element: <TypeChart />,
       },
