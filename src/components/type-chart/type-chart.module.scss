@@ -1,3 +1,19 @@
+.typeChart {
+    display: block;
+    position: relative;
+    overflow: scroll;
+}
+
+.typeChart .attackTypeHeader {
+    position: sticky;
+    left: 0;
+}
+
+.typeChart .defenseTypeHeader {
+    position: sticky;
+    top: 0;
+}
+
 .verticalHeader {
     transform: rotate(-90deg);
 }

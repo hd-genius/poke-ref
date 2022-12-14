@@ -32,7 +32,7 @@ export const TypeChartTable = ({ types, relationships }: TypeChartProps) => {
             <If condition={includeVerticalHeader}>
                 <th rowSpan={numberOfTypes} scope="row" className={styles.verticalHeader}>attacking type</th>
             </If>
-            <th scope="row">
+            <th scope="row" className={styles.attackTypeHeader}>
                 <TypeIndicator type={attackingType} />
             </th>
             {types.map(defendingType => {
@@ -68,7 +68,7 @@ export const TypeChartTable = ({ types, relationships }: TypeChartProps) => {
             <tr>
                 <th></th>
                 <th></th>
-                {types.map(type => <th scope="col"><TypeIndicator type={type} className={styles.abbreviatedType} isAbbreviated /></th>)}
+                {types.map(type => <th scope="col" className={styles.defenseTypeHeader}><TypeIndicator type={type} className={styles.abbreviatedType} isAbbreviated /></th>)}
             </tr>
             {types.map((type, index) => buildRowForType(type, index === 0))}
         </table>
