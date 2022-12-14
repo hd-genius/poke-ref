@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { App } from './app';
+import { PokemonList } from './pokemon';
 import { TypeChart } from './type-chart';
 
 const router = createBrowserRouter([
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
       },
       {
         path: "pokemon",
-        element: <div>under construction</div>
+        element: <PokemonList />
       },
       {
         path: "moves",

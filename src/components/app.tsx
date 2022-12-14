@@ -4,6 +4,7 @@ import { Menu as MenuIcon } from "@mui/icons-material";
 import { Link, Outlet } from "react-router-dom";
 import { ThemeProvider } from "@emotion/react";
 import { theme } from "./theme";
+import styles from "./app.module.scss";
 
 interface Props {
     /**
@@ -109,7 +110,7 @@ export const App = (props: Props) => {
             </Box>
             <Box component="main" sx={{ p: 3 }}>
                 <Toolbar />
-                <main>
+                <main className={styles.mainContent}>
                     <Suspense fallback="loading...">
                         <Outlet />
                     </Suspense>
