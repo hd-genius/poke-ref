@@ -28,7 +28,7 @@ export const TypeChartTable = ({ types, relationships }: TypeChartProps) => {
 
     const buildRowForType = (attackingType: PokemonType, includeVerticalHeader: boolean) => {
         const attackRelationships = relationships[attackingType] ?? [];
-        return <tr>
+        return <tr key={attackingType}>
             <If condition={includeVerticalHeader}>
                 <th rowSpan={numberOfTypes} scope="row" className={styles.verticalHeader}>attacking type</th>
             </If>
@@ -37,7 +37,7 @@ export const TypeChartTable = ({ types, relationships }: TypeChartProps) => {
             </th>
             {types.map(defendingType => {
                 const effectiveness = attackRelationships[defendingType] ?? Effectiveness.NEUTRAL;
-                return <td title={`${attackingType}${arrowSymbol}${defendingType}=${effectivenessDescription.get(effectiveness)}`}>
+                return <td title={`${attackingType}${arrowSymbol}${defendingType}=${effectivenessDescription.get(effectiveness)}`} key={defendingType}>
                     <EffectivenessIndicator effectiveness={effectiveness} />
                 </td>
             })}
@@ -60,6 +60,7 @@ export const TypeChartTable = ({ types, relationships }: TypeChartProps) => {
             <colgroup>
                 <col className={styles.verticalHeaderColumn}></col>
             </colgroup>
+            <tbody>
             <tr>
                 <th></th>
                 <th></th>
@@ -68,9 +69,14 @@ export const TypeChartTable = ({ types, relationships }: TypeChartProps) => {
             <tr>
                 <th></th>
                 <th></th>
-                {types.map(type => <th scope="col" className={styles.defenseTypeHeader}><TypeIndicator type={type} className={styles.abbreviatedType} isAbbreviated /></th>)}
+                    {types.map(type => {
+                        return <th scope="col" className={styles.defenseTypeHeader} key={type}>
+                            <TypeIndicator type={type} className={styles.abbreviatedType} isAbbreviated />
+                        </th>
+                    })}
             </tr>
             {types.map((type, index) => buildRowForType(type, index === 0))}
+            </tbody>
         </table>
     </>;
 };

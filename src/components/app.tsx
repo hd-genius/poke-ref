@@ -82,8 +82,8 @@ export const App = (props: Props) => {
                     </Typography>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         {navItems.map((item) => (
-                            <Link to={item.path}>
-                                <Button key={item.name} sx={{ color: '#fff' }}>
+                            <Link to={item.path} key={item.name}>
+                                <Button sx={{ color: '#fff' }}>
                                     {item.name}
                                 </Button>
                             </Link>
