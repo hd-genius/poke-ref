@@ -1,9 +1,10 @@
-import { Effectiveness, PokemonType } from "../../models";
+import { Effectiveness, PokemonType, TypeChart as TypeChartModel } from "../../models";
 import { EffectivenessIndicator } from "./effectiveness-indicator";
 import { TypeIndicator } from "../type-indicator";
 import { If } from "react-semantic-components";
 
 import styles from "./type-chart.module.scss";
+import { useLoaderData } from "react-router-dom";
 
 const effectivenessDescription = new Map([
     [Effectiveness.NO_EFFECT, "No effect"],
@@ -14,20 +15,13 @@ const effectivenessDescription = new Map([
 
 const arrowSymbol = String.fromCharCode(8594);
 
-interface TypeChartProps {
-    types: PokemonType[],
-    relationships: {
-        [key: string]: {
-            [key: string]: Effectiveness
-        }
-    }
-}
+export const TypeChart = () => {
+    const { types, attackRelationships } = useLoaderData() as TypeChartModel;
 
-export const TypeChartTable = ({ types, relationships }: TypeChartProps) => {
     const numberOfTypes = types.length;
 
     const buildRowForType = (attackingType: PokemonType, includeVerticalHeader: boolean) => {
-        const attackRelationships = relationships[attackingType] ?? [];
+        const relationships = attackRelationships[attackingType] ?? [];
         return <tr key={attackingType}>
             <If condition={includeVerticalHeader}>
                 <th rowSpan={numberOfTypes} scope="row" className={styles.verticalHeader}>attacking type</th>
@@ -36,7 +30,7 @@ export const TypeChartTable = ({ types, relationships }: TypeChartProps) => {
                 <TypeIndicator type={attackingType} />
             </th>
             {types.map(defendingType => {
-                const effectiveness = attackRelationships[defendingType] ?? Effectiveness.NEUTRAL;
+                const effectiveness = relationships[defendingType] ?? Effectiveness.NEUTRAL;
                 return <td title={`${attackingType}${arrowSymbol}${defendingType}=${effectivenessDescription.get(effectiveness)}`} key={defendingType}>
                     <EffectivenessIndicator effectiveness={effectiveness} />
                 </td>

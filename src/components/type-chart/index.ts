@@ -1,1 +1,1 @@
-export { TypeChartPage } from "./type-chart-page";
+export { TypeChart } from "./type-chart";

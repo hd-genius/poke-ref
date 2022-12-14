@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { CssBaseline, Drawer, Box, Button, Typography, Divider, List, ListItem, ListItemButton, ListItemText, AppBar, Toolbar, IconButton } from "@mui/material";
 import { Menu as MenuIcon } from "@mui/icons-material";
-import { AppRouter } from "./app-router";
 import { Link, Outlet } from "react-router-dom";
 import { ThemeProvider } from "@emotion/react";
 import { theme } from "./theme";
@@ -111,7 +110,9 @@ export const App = (props: Props) => {
             <Box component="main" sx={{ p: 3 }}>
                 <Toolbar />
                 <main>
-                    <Outlet />
+                    <Suspense fallback="loading...">
+                        <Outlet />
+                    </Suspense>
                 </main>
             </Box>
         </Box>
