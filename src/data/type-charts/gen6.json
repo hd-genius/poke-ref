@@ -14,8 +14,8 @@
         "bug",
         "rock",
         "ghost",
-        "dark",
         "dragon",
+        "dark",
         "steel",
         "fairy"
     ],
@@ -85,6 +85,25 @@
             "dark": 3,
             "steel": 3,
             "fairy": 1
+        },
+        "poison": {
+            "grass": 3,
+            "poison": 1,
+            "ground": 1,
+            "rock": 1,
+            "ghost": 1,
+            "steel": 0,
+            "fairy": 3
+        },
+        "ground": {
+            "fire": 3,
+            "electric": 3,
+            "grass": 1,
+            "poison": 3,
+            "flying": 0,
+            "bug": 1,
+            "rock": 3,
+            "steel": 3
         }
     }
 }
