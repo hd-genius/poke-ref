@@ -1,4 +1,4 @@
-import { Effectiveness, PokemonType } from "../../models";
+import { Effectiveness } from "../../models";
 import classnames from "classnames";
 
 import styles from "./effectiveness-indicator.module.scss";
