@@ -16,6 +16,11 @@ export const PokemonListCard = ({}) => {
             image: "https://archives.bulbagarden.net/media/upload/thumb/7/7e/006Charizard.png/1200px-006Charizard.png",
         },
         {
+            name: "Mega Charizard X",
+            types: [PokemonType.FIRE, PokemonType.DRAGON],
+            image: "https://sg.portal-pokemon.com/play/resources/pokedex/img/pm/ca3db4aad5c85a525d9be86852b26db1db7a22c0.png",
+        },
+        {
             name: "Mega Charizard Y",
             types: [PokemonType.FIRE, PokemonType.FLYING],
             image: "https://sg.portal-pokemon.com/play/resources/pokedex/img/pm/0aa78a0061bda9d88cbb0bbf739cd9cc56522fe9.png",
