@@ -1,3 +1,5 @@
+import pokeball from "../../../assets/pokeball.svg";
+
 export const LoadingIndicator = () => {
-    return null;
+    return <img src={pokeball} alt="loading indicator" />;
 };
