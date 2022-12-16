@@ -1,7 +1,7 @@
 import { Card, CardContent, Typography, CardMedia, Box, CardActions, IconButton } from "@mui/material";
 import { NavigateNext, NavigateBefore } from "@mui/icons-material";
 import { PokemonType } from "../../models";
-import { TypeIndicator } from "../type-indicator";
+import { TypeIndicator } from "../common";
 import styles from "./pokemon-list-card.module.scss";
 import { If } from "react-semantic-components";
 import { useState } from "react";

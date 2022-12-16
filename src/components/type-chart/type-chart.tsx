@@ -1,7 +1,7 @@
 import { Effectiveness, PokemonType, TypeChart as TypeChartModel } from "../../models";
 import classNames from "classnames";
 import { EffectivenessIndicator } from "./effectiveness-indicator";
-import { TypeIndicator } from "../type-indicator";
+import { TypeIndicator } from "../common";
 import { If } from "react-semantic-components";
 
 import styles from "./type-chart.module.scss";

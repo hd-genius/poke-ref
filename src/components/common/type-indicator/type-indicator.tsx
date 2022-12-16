@@ -1,5 +1,5 @@
 import classnames from "classnames";
-import { PokemonType } from "../../models";
+import { PokemonType } from "../../../models";
 
 import styles from "./type-indicator.module.scss";
 

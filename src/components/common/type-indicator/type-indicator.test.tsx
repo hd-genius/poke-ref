@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { TypeIndicator } from "./type-indicator";
-import { PokemonType } from "../../models";
+import { PokemonType } from "../../../models";
 
 
 describe("TypeIndicator", () => {
